@@ -9,26 +9,15 @@ struct renderCircle
 {
   float x;
   float y;
+  float opacity;
   int diameter;
   std::string color;
-  float opacity;
 };
 
 class MyWindow : public Window
 {
 public:
   MyWindow(int w, int h) : Window(w, h) {}
-
-  float green_x = 30, green_y = 30, purple_x = 80, purple_y = 30, blue_x = 130,
-        blue_y = 30, yellow_x = 180, yellow_y = 30, orange_x = 230, orange_y = 30;
-
-  float paletteDiameter = 30;
-  float brushDiameter = 15;
-  float brushOpacity = 1;
-  float paletteRadius = paletteDiameter / 2;
-  std::list<renderCircle> strokes;
-  std::string selectedColor = "green";
-
   void setup() override
   {
     std::cout << "Window size: " << width() << ", " << height() << std::endl;
@@ -206,12 +195,14 @@ public:
   }
 
 private:
-  // todo: create member variables for
-  // current circle size
-  // current transparency
-  // current color
-  // list of circles to draw each frame
-  // color pallet
+  float green_x = 30, green_y = 30, purple_x = 80, purple_y = 30, blue_x = 130,
+        blue_y = 30, yellow_x = 180, yellow_y = 30, orange_x = 230, orange_y = 30;
+  float paletteDiameter = 30;
+  float brushDiameter = 15;
+  float brushOpacity = 1;
+  float paletteRadius = paletteDiameter / 2;
+  std::list<renderCircle> strokes;
+  std::string selectedColor = "green";
 };
 
 int main()
